@@ -57,7 +57,7 @@ public class FrmCliente extends JFrame {
 				if(erro == null){
 					//nenhum erro criado
 					//realiza a gravacao
-					controle.gravar();
+					controle.gravar(c);
 					JOptionPane.showMessageDialog(null, "Salvo");
 				}else{
 					JOptionPane.showMessageDialog(null, erro, "Validacao", JOptionPane.WARNING_MESSAGE);

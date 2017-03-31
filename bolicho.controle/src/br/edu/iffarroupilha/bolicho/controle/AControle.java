@@ -1,6 +1,10 @@
 package br.edu.iffarroupilha.bolicho.controle;
 
-import java.util.*;
+import java.util.List;
+
+import org.hibernate.Session;
+
+import br.edu.iffarroupilha.bolicho.modelo.dao.HibernateDAO;
 
 /**
  * <p>
@@ -11,7 +15,15 @@ import java.util.*;
 
 public abstract class AControle {
 	// gravar ou atualizar uma informação em banco
-	public void gravar(){
+	public void gravar(Object entidade){
+		// estabelece uma conexão
+		Session sessao = HibernateDAO.getSessao();
+		// abre uma transação
+		sessao.getTransaction().begin();
+		// salva as alterações
+		sessao.saveOrUpdate(entidade);
+		// comita as alterações
+		sessao.getTransaction().commit();
 		
 	}
 	// busca todos os registros de uma determinada entidade(classe)
