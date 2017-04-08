@@ -2,10 +2,16 @@ package br.edu.iffarroupilha.bolicho.modelo;
 
 import java.util.Date;
 
-public class Venda {
+import javax.persistence.*;
 
+@Entity
+public class Venda {
+	@Id
+	@Column(nullable=false)
 	private int idvenda;
+	@Column(length=40, nullable=false)
 	private Cliente cliente;
+	@Temporal(TemporalType.DATE)
 	private Date data;
 	
 	public int getIdvenda() {
